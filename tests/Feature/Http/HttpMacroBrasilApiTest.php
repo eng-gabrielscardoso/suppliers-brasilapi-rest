@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Http;
 use App\Providers\AppServiceProvider;
+use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Response;
 
 beforeEach(function () {
@@ -31,8 +31,6 @@ test('should register the brasilApi macro correctly', function () {
 
 test('should makes a real request to brasilAPI for a CNPJ search', function () {
     $response = Http::brasilApi()->get('/cnpj/v1/54258480000114');
-
-    dd($response->body());
 
     expect($response->status())->toBe(Response::HTTP_OK);
     expect($response->json('cnpj'))->toBe('54258480000114');
