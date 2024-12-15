@@ -36,7 +36,7 @@ return [
     ],
 
     'brasilApi' => [
-        'url' => env('BRASIL_API_URL')
+        'url' => env('BRASIL_API_URL'),
     ],
 
 ];
