@@ -25,10 +25,10 @@ return new class extends Migration {
             $table->enum('registration_type', CompanyRegistrationType::values());
 
             $table->string('contact_email', 255)->nullable();
-            $table->enum('contact_isd_code', ISDCode::values())->nullable();
+            $table->string('contact_isd_code', 5)->nullable();
             $table->string('contact_phone_number', 12)->nullable();
 
-            $table->enum('address_country', ISO3166Alpha2::names())->nullable();
+            $table->enum('address_country', ISO3166Alpha2::values())->nullable();
             $table->string('address_postal_code', 10)->nullable();
             $table->string('address_province', 255)->nullable();
             $table->string('address_street', 255)->nullable();

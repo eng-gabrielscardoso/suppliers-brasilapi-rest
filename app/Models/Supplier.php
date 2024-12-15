@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\CompanyRegistrationType;
-use App\Enums\ISDCode;
 use App\Enums\ISO3166Alpha2;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,7 +32,6 @@ class Supplier extends Model
         return [
             'active' => 'boolean',
             'registration_type' => CompanyRegistrationType::class,
-            'contact_isd_code' => ISDCode::class,
             'address_country' => ISO3166Alpha2::class
         ];
     }
