@@ -21,7 +21,7 @@ class SupplierController extends Controller
     public function index()
     {
         return SupplierResource::collection(
-            $this->supplierService->all()
+            $this->supplierService->all()->filter()->sort()
         );
     }
 

@@ -19,6 +19,20 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers?filters[registration_type][$eq]=cpf HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers?filters[registration_type][$eq]=cpf&sort=trading_name:desc HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
 POST http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers HTTP/1.1
 Date: {{$datetime rfc1123}}
 Accept: application/json
