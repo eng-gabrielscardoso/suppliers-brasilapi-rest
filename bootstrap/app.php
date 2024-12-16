@@ -1,8 +1,11 @@
 <?php
 
+use App\Exceptions\Api\V1\NotFoundException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -21,5 +24,11 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->renderable(function (Throwable $e) {
+            if ($e->getPrevious() instanceof ModelNotFoundException) {
+                return response()->json([
+                    'message' => 'The request supplier were not found or not exists'
+                ], Response::HTTP_NOT_FOUND);
+            }
+        });
     })->create();
