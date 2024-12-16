@@ -1,0 +1,286 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Suppliers BrasilAPI Rest",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/suppliers": {
+            "get": {
+                "tags": [
+                    "Suppliers"
+                ],
+                "summary": "Display a listing of the suppliers",
+                "description": "Fetch and list all suppliers with optional filtering and sorting",
+                "operationId": "f83117376e14a7f74ad31fc9f7312fb6",
+                "responses": {
+                    "200": {
+                        "description": "List of suppliers",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Suppliers"
+                ],
+                "summary": "Store a new supplier",
+                "description": "Create a new supplier in the system",
+                "operationId": "a4657ad682bbe07aee1bb6018a080736",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "active",
+                                    "company_name",
+                                    "trading_name",
+                                    "registration_number",
+                                    "registration_type"
+                                ],
+                                "properties": {
+                                    "active": {
+                                        "description": "Indicates if the supplier is active",
+                                        "type": "boolean"
+                                    },
+                                    "company_name": {
+                                        "description": "The legal name of the company",
+                                        "type": "string"
+                                    },
+                                    "trading_name": {
+                                        "description": "The trading name of the supplier",
+                                        "type": "string"
+                                    },
+                                    "registration_number": {
+                                        "description": "The supplier's registration number",
+                                        "type": "string"
+                                    },
+                                    "registration_type": {
+                                        "description": "The type of registration",
+                                        "type": "string",
+                                        "enum": [
+                                            "cnpj",
+                                            "cpf"
+                                        ]
+                                    },
+                                    "contact_email": {
+                                        "description": "The supplier's contact email",
+                                        "type": "string"
+                                    },
+                                    "contact_isd_code": {
+                                        "description": "Country code for the contact phone",
+                                        "type": "string"
+                                    },
+                                    "contact_phone_number": {
+                                        "description": "Phone number for contacting the supplier",
+                                        "type": "string"
+                                    },
+                                    "address_country": {
+                                        "description": "Country of the supplier's address in ISO3166Alpha2 format (e.g. BR)",
+                                        "type": "string"
+                                    },
+                                    "address_postal_code": {
+                                        "description": "Postal code of the supplier's address",
+                                        "type": "string"
+                                    },
+                                    "address_province": {
+                                        "description": "Province of the supplier's address",
+                                        "type": "string"
+                                    },
+                                    "address_street": {
+                                        "description": "Street address of the supplier",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Supplier created successfully",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/suppliers/{supplier}": {
+            "get": {
+                "tags": [
+                    "Suppliers"
+                ],
+                "summary": "Display the specified supplier",
+                "description": "Fetch and display the details of a single supplier",
+                "operationId": "2e510fed3048b06303fcd1a8c34b40e3",
+                "parameters": [
+                    {
+                        "name": "supplier",
+                        "in": "path",
+                        "description": "The ID of the supplier to fetch",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Supplier details",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "404": {
+                        "description": "Supplier not found",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Suppliers"
+                ],
+                "summary": "Update an existing supplier",
+                "description": "Update the details of an existing supplier",
+                "operationId": "564838b3fde6653ff177e8acee01d4e9",
+                "parameters": [
+                    {
+                        "name": "supplier",
+                        "in": "path",
+                        "description": "The ID of the supplier to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "active": {
+                                        "description": "Indicates if the supplier is active",
+                                        "type": "boolean"
+                                    },
+                                    "company_name": {
+                                        "description": "The legal name of the company",
+                                        "type": "string"
+                                    },
+                                    "trading_name": {
+                                        "description": "The trading name of the supplier",
+                                        "type": "string"
+                                    },
+                                    "registration_number": {
+                                        "description": "The supplier's registration number",
+                                        "type": "string"
+                                    },
+                                    "registration_type": {
+                                        "description": "The type of registration",
+                                        "type": "string",
+                                        "enum": [
+                                            "cnpj",
+                                            "cpf"
+                                        ]
+                                    },
+                                    "contact_email": {
+                                        "description": "The supplier's contact email",
+                                        "type": "string"
+                                    },
+                                    "contact_isd_code": {
+                                        "description": "Country code for the contact phone",
+                                        "type": "string"
+                                    },
+                                    "contact_phone_number": {
+                                        "description": "Phone number for contacting the supplier",
+                                        "type": "string"
+                                    },
+                                    "address_country": {
+                                        "description": "Country of the supplier's address in ISO3166Alpha2 format (e.g. BR)",
+                                        "type": "string"
+                                    },
+                                    "address_postal_code": {
+                                        "description": "Postal code of the supplier's address",
+                                        "type": "string"
+                                    },
+                                    "address_province": {
+                                        "description": "Province of the supplier's address",
+                                        "type": "string"
+                                    },
+                                    "address_street": {
+                                        "description": "Street address of the supplier",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Supplier updated successfully",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Suppliers"
+                ],
+                "summary": "Delete a supplier",
+                "description": "Remove a supplier from the system",
+                "operationId": "d971ec860f46a8479dac5b045f97f0f2",
+                "parameters": [
+                    {
+                        "name": "supplier",
+                        "in": "path",
+                        "description": "The ID of the supplier to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Supplier deleted successfully"
+                    },
+                    "404": {
+                        "description": "Supplier not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Suppliers",
+            "description": "Suppliers"
+        }
+    ]
+}
