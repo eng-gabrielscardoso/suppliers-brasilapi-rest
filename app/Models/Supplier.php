@@ -9,11 +9,12 @@ use App\Enums\ISO3166Alpha2;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 
 class Supplier extends Model
 {
     /** @use HasFactory<\Database\Factories\SupplierFactory> */
-    use Filterable, HasFactory, SoftDeletes, Sortable;
+    use Filterable, HasFactory, Searchable, SoftDeletes, Sortable;
 
     protected $fillable = [
         'active',
