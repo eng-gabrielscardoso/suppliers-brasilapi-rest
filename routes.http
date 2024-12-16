@@ -1,0 +1,65 @@
+GET http://localhost:{{$dotenv APP_PORT}} HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: text/html
+Content-Type: text/html
+
+###
+
+GET http://localhost:{{$dotenv APP_PORT}}/up HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: text/html
+Content-Type: text/html
+
+###
+
+GET http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "active": true,
+    "company_name": "54.258.480 GABRIEL SANTOS CARDOSO",
+    "trading_name": "Gabriel Santos Cardoso",
+    "registration_number": "54258480000114",
+    "registration_type": "cnpj",
+    "contact_email": "eng.gabrielscardoso@gmail.com",
+    "contact_isd_code": "55",
+    "contact_phone_number": "91986253389",
+    "address_country": "BR",
+    "address_postal_code": "68445000",
+    "address_province": "PA",
+    "address_street": "João Pantoja de Castro"
+}
+
+###
+
+GET http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers/102 HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json
+
+###
+
+PATCH http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers/101 HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "active": false
+}
+
+###
+
+DELETE http://localhost:{{$dotenv APP_PORT}}/api/v1/suppliers/101 HTTP/1.1
+Date: {{$datetime rfc1123}}
+Accept: application/json
+Content-Type: application/json

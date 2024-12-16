@@ -35,6 +35,8 @@ class SupplierRepository implements SupplierRepositoryContract
 
     public function find(int $supplier): Supplier
     {
-        return Supplier::findOrFail($supplier);
+        $supplier = Supplier::findOrFail($supplier);
+
+        return $supplier;
     }
 }
