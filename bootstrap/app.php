@@ -1,6 +1,5 @@
 <?php
 
-use App\Exceptions\Api\V1\NotFoundException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -27,7 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->renderable(function (Throwable $e) {
             if ($e->getPrevious() instanceof ModelNotFoundException) {
                 return response()->json([
-                    'message' => 'The request supplier were not found or not exists'
+                    'message' => 'The request supplier were not found or not exists',
                 ], Response::HTTP_NOT_FOUND);
             }
         });

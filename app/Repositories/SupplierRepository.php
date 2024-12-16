@@ -38,8 +38,8 @@ class SupplierRepository implements SupplierRepositoryContract
     {
         $supplier = Supplier::findOrFail($supplier);
 
-        if (!$supplier) {
-            throw new NotFoundException();
+        if (! $supplier) {
+            throw new NotFoundException;
         }
 
         return $supplier;

@@ -32,7 +32,7 @@ class Supplier extends Model
         return [
             'active' => 'boolean',
             'registration_type' => CompanyRegistrationType::class,
-            'address_country' => ISO3166Alpha2::class
+            'address_country' => ISO3166Alpha2::class,
         ];
     }
 }

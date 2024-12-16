@@ -1,13 +1,13 @@
 <?php
 
 use App\Enums\CompanyRegistrationType;
-use App\Enums\ISDCode;
 use App\Enums\ISO3166Alpha2;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
